@@ -41,6 +41,7 @@ count_occurrences("e", sentence_letters)
 # letter in the vector to determine their frequencies.
 # Convert the result into a list (using `as.list()`).
 letter_frequencies <- sapply(unique_letters, count_occurrences, sentence_letters)
+letter_frequencies <- as.list(letter_frequencies)
 
 # Print the resulting list of frequencies
 print(letter_frequencies)
