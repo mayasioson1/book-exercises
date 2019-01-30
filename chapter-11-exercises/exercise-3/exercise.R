@@ -11,14 +11,19 @@ library("fueleconomy")
 
 # Which 2015 Acura model has the best hwy MGH? (Use dplyr, but without method
 # chaining or pipes--use temporary variables!)
-
+vehicles_2015_acura <- filter(vehicles, year == 2015, make == "Acura")
+best_hwy_mpg <- max(vehicles_2015_acura$hwy)
+best_vehicle_hwy <- filter(vehicles_2015_acura, hwy == best_hwy_mpg)
+best_vehicle_hwy_model <- select(best_vehicle_hwy, model)
 
 # Which 2015 Acura model has the best hwy MPG? (Use dplyr, nesting functions)
-
+best_hwy <- filter(vehicles, year == 2015, make == "Acura")
 
 # Which 2015 Acura model has the best hwy MPG? (Use dplyr and the pipe operator)
-
-
+best_model <- vehicles %>%
+  filter(year == 2015, make == "Acura") %>%
+  filter(hwy == max(hwy)) %>%
+  select(model)
 
 ### Bonus
 
